@@ -8,7 +8,7 @@ app.get('/api', (req, res) => {
     const currentPage = 'page' in req.query && Number(req.query.page)? Number(req.query.page) : 1;
     const urlPrefix = '/api?page=';
     const pages = Math.ceil(stuff.length/perPage);
-
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.json({
         info: {
             count: stuff.length,
