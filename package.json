@@ -1,13 +1,14 @@
 {
-  "name": "19_1_node",
+  "name": "salary_table_server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Dmitriy Pedan <dmitriiypedan@gmail.com>",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.2"
