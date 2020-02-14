@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const stuff = require('./stuff');
-
+const PORT = process.env.PORT || 3000;
 app.get('/api', (req, res) => {
 
     const perPage = 'perPage' in req.query && Number(req.query.perPage) ? Number(req.query.perPage) : 3;
@@ -27,6 +27,6 @@ const getNextPageUrl = (current_page, total_pages, url_prefix) => {
 }
 const getPrevPageUrl = (current_page, url_prefix) => current_page > 1 ? `${url_prefix}${current_page-1}` : null
 
-app.listen(3000, () => {
+app.listen(PORT, () => {
     console.log('Server was runnig...')
 })
