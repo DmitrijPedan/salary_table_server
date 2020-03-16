@@ -22,34 +22,34 @@ wsServer.on('connection', ws => {
 })
 
 
-app.get('/api', (req, res) => {
-    const perPage = 'perPage' in req.query && Number(req.query.perPage) ? Number(req.query.perPage) : 3;
-    const currentPage = 'page' in req.query && Number(req.query.page)? Number(req.query.page) : 1;
-    const urlPrefix = '/api?page=';
-    const pages = Math.ceil(stuff.length/perPage);
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.json({
-        info: {
-            count: stuff.length,
-            pages,
-            next: getNextPageUrl(currentPage, pages, urlPrefix),
-            prev: getPrevPageUrl(currentPage, urlPrefix),
-            currentPage,
-            perPage,
-          },
-          results: stuff.slice((currentPage-1)*perPage,currentPage*perPage)
-    })
-});
+// app.get('/api', (req, res) => {
+//     const perPage = 'perPage' in req.query && Number(req.query.perPage) ? Number(req.query.perPage) : 3;
+//     const currentPage = 'page' in req.query && Number(req.query.page)? Number(req.query.page) : 1;
+//     const urlPrefix = '/api?page=';
+//     const pages = Math.ceil(stuff.length/perPage);
+//     res.setHeader('Access-Control-Allow-Origin', '*');
+//     res.json({
+//         info: {
+//             count: stuff.length,
+//             pages,
+//             next: getNextPageUrl(currentPage, pages, urlPrefix),
+//             prev: getPrevPageUrl(currentPage, urlPrefix),
+//             currentPage,
+//             perPage,
+//           },
+//           results: stuff.slice((currentPage-1)*perPage,currentPage*perPage)
+//     })
+// });
 
 app.get('/stocks', (req,res) => {
     res.json(stocks);
 })
 
-const getNextPageUrl = (current_page, total_pages, url_prefix) => {
-    return current_page < total_pages ? `${url_prefix}${current_page+1}` : null
-}
-const getPrevPageUrl = (current_page, url_prefix) => current_page > 1 ? `${url_prefix}${current_page-1}` : null
+// const getNextPageUrl = (current_page, total_pages, url_prefix) => {
+//     return current_page < total_pages ? `${url_prefix}${current_page+1}` : null
+// }
+// const getPrevPageUrl = (current_page, url_prefix) => current_page > 1 ? `${url_prefix}${current_page-1}` : null
 
-app.listen(HTTP_PORT, () => {
-    console.log('Server was runnig...')
-})
+// app.listen(HTTP_PORT, () => {
+//     console.log('Server was runnig...')
+// })
